@@ -12,7 +12,7 @@ pipeline{
         stage('build assembly project') {
             steps {
                 script {
-                    sh 'mvn clean'
+                    sh 'mvn clean install'
                 }
             }
         }
