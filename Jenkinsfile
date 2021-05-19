@@ -1,15 +1,19 @@
 pipeline{
     agent any
     stages{
-        stage ("checkout"){
-            steps{
-                echo 'in checkout'
+        stage('checkout sql source projects') {
+            steps {
+                git url: 'https://github.com/uteegozi/Jenkinsfile-test-data.git'
             }
         }
-        stage ("build"){
-            steps{
-                echo 'in build'
-            }
-        }
+//         stage('build assembly project') {
+//             steps {
+//                 script {
+//                     new MavenCommand(this, ['-fae'])
+//                     .inDirectory('Jenkinsfile-test')
+//                     .run('clean install')
+//                 }
+//             }
+//         }
     }
 }
