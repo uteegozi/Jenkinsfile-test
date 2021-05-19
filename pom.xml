@@ -13,4 +13,40 @@
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <finalName>ute-ddl</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/assembly/sql-assembly.xml</descriptor>
+                    </descriptors>
+                    <finalName/>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>sql-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <inherited>false</inherited>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
 </project>
